@@ -34,5 +34,6 @@ RUN set -x \
     && apt-get purge -y --auto-remove gnupg curl ca-certificates lsof apt-transport-https lsb-release \
     && apt-clean --aggressive
 
+EXPOSE 1337 3000 3001 6270
 ENTRYPOINT ["/tini", "--"]
 CMD ["/bin/bash"]
