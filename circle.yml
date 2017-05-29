@@ -11,6 +11,13 @@ dependencies:
     - docker build -t tklx/$appname:latest .
     - docker images
 
+test:
+  pre:
+    - git clone https://github.com/tklx/bats.git
+    - sudo bats/install.sh /usr/local
+  override:
+    - IMAGE=tklx/$appname:latest bats --tap tests/basics.bats
+
 deployment:
   latest:
     branch: master
