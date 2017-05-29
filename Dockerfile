@@ -21,11 +21,16 @@ RUN set -x \
     && apt-clean --aggressive
 
 ENV NODE_MAJOR_VERSION=7
+ENV BLOCKSTACK_PORTAL_VERSION=v0.8
 RUN set -x \
     && apt-get update \
     && apt-get -y install gnupg curl ca-certificates lsof apt-transport-https lsb-release \
     && curl -sL https://deb.nodesource.com/setup_${NODE_MAJOR_VERSION}.x | bash - \
     && apt-get -y install nodejs \
+    && git clone https://github.com/blockstack/blockstack-portal.git -b${BLOCKSTACK_PORTAL_VERSION} /blockstack/portal \
+    && cd /blockstack/portal \
+    && npm install node-sass \
+    && npm install \
     && apt-get purge -y --auto-remove gnupg curl ca-certificates lsof apt-transport-https lsb-release \
     && apt-clean --aggressive
 
