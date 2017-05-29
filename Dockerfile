@@ -34,6 +34,7 @@ RUN set -x \
     && npm install node-sass \
     && npm install \
     && npm cache clean \
+    && rm -rf /tmp/npm-* \
     && apt-get purge -y --auto-remove gnupg curl apt-transport-https lsb-release \
     && apt-clean --aggressive
 
