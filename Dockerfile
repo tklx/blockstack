@@ -17,6 +17,7 @@ RUN set -x \
     && virtualenv --python=python2.7 /blockstack/core \
     && /blockstack/core/bin/python -m pip install git+https://github.com/blockstack/virtualchain.git@${VIRTUALCHAIN_VERSION} \
     && /blockstack/core/bin/python -m pip install git+https://github.com/blockstack/blockstack-core.git@${BLOCKSTACK_CORE_VERSION} \
+    && rm -rf /root/.cache/pip \
     && apt-get purge -y --auto-remove build-essential \
     && apt-clean --aggressive
 
@@ -31,6 +32,7 @@ RUN set -x \
     && cd /blockstack/portal \
     && npm install node-sass \
     && npm install \
+    && npm cache clean \
     && apt-get purge -y --auto-remove gnupg curl ca-certificates apt-transport-https lsb-release \
     && apt-clean --aggressive
 
