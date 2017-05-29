@@ -34,7 +34,7 @@ RUN set -x \
     && npm install node-sass \
     && npm install \
     && npm cache clean \
-    && apt-get purge -y --auto-remove gnupg curl ca-certificates apt-transport-https lsb-release \
+    && apt-get purge -y --auto-remove gnupg curl apt-transport-https lsb-release \
     && apt-clean --aggressive
 
 EXPOSE 1337 3000 3001 6270
