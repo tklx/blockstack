@@ -11,7 +11,7 @@ ENV BLOCKSTACK_CORE_VERSION=rc-0.14.2
 ENV VIRTUALCHAIN_VERSION=rc-0.14.2
 RUN set -x \
     && apt-get update \
-    && apt-get -y install build-essential git libssl-dev libffi-dev python-pip python-dev rng-tools \
+    && apt-get -y install build-essential git libssl-dev libffi-dev python-pip python-dev rng-tools lsof \
     && pip install virtualenv \
     && mkdir /blockstack \
     && virtualenv --python=python2.7 /blockstack/core \
@@ -24,14 +24,14 @@ ENV NODE_MAJOR_VERSION=7
 ENV BLOCKSTACK_PORTAL_VERSION=v0.8
 RUN set -x \
     && apt-get update \
-    && apt-get -y install gnupg curl ca-certificates lsof apt-transport-https lsb-release \
+    && apt-get -y install gnupg curl ca-certificates apt-transport-https lsb-release \
     && curl -sL https://deb.nodesource.com/setup_${NODE_MAJOR_VERSION}.x | bash - \
     && apt-get -y install nodejs \
     && git clone https://github.com/blockstack/blockstack-portal.git -b${BLOCKSTACK_PORTAL_VERSION} /blockstack/portal \
     && cd /blockstack/portal \
     && npm install node-sass \
     && npm install \
-    && apt-get purge -y --auto-remove gnupg curl ca-certificates lsof apt-transport-https lsb-release \
+    && apt-get purge -y --auto-remove gnupg curl ca-certificates apt-transport-https lsb-release \
     && apt-clean --aggressive
 
 EXPOSE 1337 3000 3001 6270
