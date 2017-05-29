@@ -1,4 +1,5 @@
 # tklx/blockstack - A New Internet for Decentralized Apps
+[![CircleCI](https://circleci.com/gh/tklx/blockstack.svg?style=shield)](https://circleci.com/gh/tklx/blockstack)
 
 [Blockstack][blockstack] is a new decentralized internet where users own
 their data and apps run locally.
@@ -56,6 +57,14 @@ password you took note of above.
 
 Tip: setup a [protocol-handler][protocol-handler]
 
+
+## Automated builds
+
+The [Docker image](https://hub.docker.com/r/tklx/blockstack/) is built,
+and pushed by [CircleCI](https://circleci.com/gh/tklx/blockstack) from source hosted on [GitHub](https://github.com/tklx/blockstack).
+
+* Tag: ``x.y.z`` refers to a [release](https://github.com/tklx/blockstack/releases) (recommended).
+* Tag: ``latest`` refers to the master branch.
 
 ## Issue Tracker
 
