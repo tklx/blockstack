@@ -28,6 +28,7 @@ RUN set -x \
     && apt-get -y install gnupg curl ca-certificates apt-transport-https lsb-release \
     && curl -sL https://deb.nodesource.com/setup_${NODE_MAJOR_VERSION}.x | bash - \
     && apt-get -y install nodejs \
+    && rm /etc/apt/sources.list.d/nodesource.list \
     && git clone https://github.com/blockstack/blockstack-portal.git -b${BLOCKSTACK_PORTAL_VERSION} /blockstack/portal \
     && cd /blockstack/portal \
     && npm install node-sass \
